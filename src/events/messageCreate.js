@@ -21,12 +21,13 @@ module.exports = {
             guildDoc = await client.db.collection("guilds").findOne({
                 _id: message.guild.id
             });
-        }
+        }       
 
         let prefix = guildDoc.prefix;
 
+        // Checking if the bot is being mentioned
         if (message.mentions.users.has(client.user.id) && !message.author.bot) {
-            return await messageHandler.reply(`The current prefix I respond to in this server is \`${prefix}\``, message.channel);
+            await messageHandler.reply(`The current prefix I respond to in this server is \`${prefix}\``, message.channel);
         };
 
         if (!message.content.startsWith(prefix)) return;
