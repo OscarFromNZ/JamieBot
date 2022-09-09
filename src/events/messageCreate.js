@@ -25,6 +25,10 @@ module.exports = {
 
         let prefix = guildDoc.prefix;
 
+        if (message.mentions.users.has(client.user.id) && !message.author.bot) {
+            return await messageHandler.reply(`The current prefix I respond to in this server is \`${prefix}\``, message.channel);
+        };
+
         if (!message.content.startsWith(prefix)) return;
         try {
             if (!message.guild) return messageHandler.reply("You must be in a server to run any command");
