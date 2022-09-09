@@ -1,0 +1,22 @@
+{
+  "name": "cubingbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cube-scrambler": "^1.1.0",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1",
+    "fs": "^0.0.1-security",
+    "mongodb": "^4.9.0",
+    "node-schedule": "^2.1.0",
+    "scramble-display": "^0.5.2",
+    "scrambow": "^1.7.0"
+  }
+}
