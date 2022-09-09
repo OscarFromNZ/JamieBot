@@ -15,11 +15,11 @@ module.exports = {
 
     async execute(client, message, args) {
         try {
+            // Getting doc
             var guildDoc = await client.db.collection("guilds").findOne({
                 _id: message.guild.id
             });
             if (!guildDoc) {
-                console.log("null");
                 await client.db.collection("guilds").insertOne(await base.getDefaultGuildDoc(client, message.guild.id), async function (err, res) {
                     if (err) {
                         console.log(err);
@@ -45,6 +45,8 @@ module.exports = {
                     }
                 }
             );
+
+            return await messageHandler.reply(`I have successfully changed the prefix of this server to \`${args[0]}\``, message.channel);
 
 
         } catch (e) { console.log(e) }
