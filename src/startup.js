@@ -27,6 +27,8 @@ module.exports = async (client) => {
         star: ':star:',
     };
 
+    client.snipes = new Map();
+
     try {
         for (const file of client.eventFiles) {
             const event = await require(`../src/events/${file}`);

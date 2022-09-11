@@ -7,7 +7,6 @@ const functions = require('../functions/functions');
 module.exports = {
     async reply(client, content, channel, row, thumbnail, banner) {
         // No row support yet btw
-
         try {
             let emb = new EmbedBuilder()
                 .setDescription(content)
