@@ -34,7 +34,6 @@ module.exports = async (client) => {
 
     // An API for jokes apparently
     client.memer = Memer;
-    console.log(client.memer.joke());
 
     try {
         for (const file of client.eventFiles) {
