@@ -1,10 +1,9 @@
 const { ComponentType, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputStyle, EmbedBuilder } = require('discord.js');
 var messageHandler = require("../../handlers/messageHandler");
-var Scrambow = require('scrambow').Scrambow;
 
 module.exports = {
     data: {
-        name: ["test"],
+        name: ["howgay", "gay", "gaylevel"],
         description: "blah blah",
 
         ownerOnly: false,
@@ -13,7 +12,8 @@ module.exports = {
 
     async execute(client, message, args) {
         try {
-          
+            let p = await Math.floor(Math.random() * 100);
+            await messageHandler.reply(client, `You are ${p}% gay :O`, message.channel);
 
         } catch (e) { console.log(e) }
 

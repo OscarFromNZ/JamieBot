@@ -6,7 +6,7 @@ module.exports = {
         name: ["snipe", "snip"],
         description: "blah blah",
 
-        ownerOnly: true,
+        ownerOnly: false,
         premiumOnly: false,
         maxArgs: 0,
         minArgs: 0  

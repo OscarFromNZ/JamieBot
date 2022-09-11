@@ -1,4 +1,6 @@
 var MongoClient = require("mongodb").MongoClient;
+const { MembershipScreeningFieldType } = require("discord.js");
+let Memer = require("random-jokes-api");
 
 module.exports = async (client) => {
     // Storing all functions into client.functions so I can use them easily
@@ -27,7 +29,12 @@ module.exports = async (client) => {
         star: ':star:',
     };
 
+    // This is all the snipes cached
     client.snipes = new Map();
+
+    // An API for jokes apparently
+    client.memer = Memer;
+    console.log(client.memer.joke());
 
     try {
         for (const file of client.eventFiles) {

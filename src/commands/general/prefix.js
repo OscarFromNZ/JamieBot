@@ -6,7 +6,7 @@ module.exports = {
         name: ["prefix"],
         description: "blah blah",
 
-        ownerOnly: true,
+        ownerOnly: false,
         premiumOnly: false,
         maxArgs: 1,
         minArgs: 0

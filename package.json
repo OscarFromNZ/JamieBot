@@ -16,6 +16,7 @@
     "fs": "^0.0.1-security",
     "mongodb": "^4.9.1",
     "node-schedule": "^2.1.0",
+    "random-jokes-api": "^1.5.9",
     "scramble-display": "^0.5.2",
     "scrambow": "^1.7.0"
   }
