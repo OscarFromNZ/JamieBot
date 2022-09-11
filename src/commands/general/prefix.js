@@ -1,4 +1,3 @@
-var base = require('../../spoons/getGuildSchema');
 var messageHandler = require("../../handlers/messageHandler");
 
 
@@ -20,7 +19,7 @@ module.exports = {
                 _id: message.guild.id
             });
             if (!guildDoc) {
-                await client.db.collection("guilds").insertOne(await base.getDefaultGuildDoc(client, message.guild.id), async function (err, res) {
+                await client.db.collection("guilds").insertOne(await client.functions.getDefaultGuildDoc(client, message.guild.id), async function (err, res) {
                     if (err) {
                         console.log(err);
                     }
