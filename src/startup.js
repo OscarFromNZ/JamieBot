@@ -1,14 +1,7 @@
 var MongoClient = require("mongodb").MongoClient;
-var messageHandler = require("./handlers/messageHandler");
-var Scrambow = require('scrambow').Scrambow;
-const fs = require('fs');
-
-const { ComponentType, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputStyle } = require('discord.js');
-
-const cmd = require("./functions/getCommandFiles");
-const event = require("./functions/getEventFiles");
 
 module.exports = async (client) => {
+    // Storing all functions into client.functions so I can use them easily
     client.functions = await require('./functions/functions');
     
     // Storing all commands into the .commandFiles object of client
@@ -19,8 +12,20 @@ module.exports = async (client) => {
     client.eventFiles = await client.functions.getEventFiles(client);
     console.log(`Stored eventfiles into client.eventFiles`);
 
+    // Storing mydb into client.db so I can use it easily
     var mongoClient = await MongoClient.connect(process.env.MONGO_URI);
     client.db = await mongoClient.db("mydb");
+
+    client.emotes = {
+        warning: ':warning:',
+        chart: ':chart_with_upwards_trend:',
+        sparkles: ':sparkles:',
+        shush: ':shushing_face:',
+        check: ':white_check_mark:',
+        info: ':information_source:',
+        arrowUp: ':arrow_up:',
+        star: ':star:',
+    };
 
     try {
         for (const file of client.eventFiles) {

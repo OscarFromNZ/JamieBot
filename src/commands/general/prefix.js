@@ -32,7 +32,7 @@ module.exports = {
             }
 
             if (!args[0]) {
-                return await messageHandler.reply(`The current prefix I respond to in this server is \`${guildDoc.prefix}\``, message.channel);
+                return await messageHandler.reply(client, `The current prefix I respond to in this server is \`${guildDoc.prefix}\``, message.channel);
             }
 
             console.log("Changing prefix to " + args[0]);
@@ -45,7 +45,7 @@ module.exports = {
                 }
             );
 
-            return await messageHandler.reply(`I have successfully changed the prefix of this server to \`${args[0]}\``, message.channel);
+            return await messageHandler.reply(client, `I have successfully changed the prefix of this server to \`${args[0]}\``, message.channel);
 
 
         } catch (e) { console.log(e) }

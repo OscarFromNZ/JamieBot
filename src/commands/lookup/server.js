@@ -43,7 +43,7 @@ module.exports = {
             ${channels} channels
             `
 
-            await messageHandler.reply(send, message.channel, undefined, avatar, banner);
+            await messageHandler.reply(client, send, message.channel, undefined, avatar, banner);
 
         } catch (e) { console.log(e) }
 
