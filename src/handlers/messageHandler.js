@@ -7,10 +7,11 @@ const functions = require('../functions/functions');
 module.exports = {
     async reply(client, content, channel, row, thumbnail, banner) {
         // No row support yet btw
+
         try {
             let emb = new EmbedBuilder()
                 .setDescription(content)
-                .setColor(channel.guild.members.me.displayHexColor)
+                .setColor(channel.guild.members.me.displayHexColor == '#000000' ? '2f3136' : channel.guild.members.me.displayHexColor)
                 .setImage(banner)
                 .setThumbnail(thumbnail)
 
