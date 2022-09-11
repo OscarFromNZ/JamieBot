@@ -10,7 +10,7 @@ module.exports = {
         let snipeData = {
             content: message.content,
             author: message.author,
-            date: message.createdTimestamp
+            createdAt: message.createdTimestamp
         };
         await client.snipes.set(message.channel.id, snipeData);
     },
