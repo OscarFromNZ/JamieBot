@@ -1,4 +1,4 @@
-module.exports = async (client) => {
+module.exports = async (client, guildId) => {
     try {
         let data = {
             _id: guildId,
