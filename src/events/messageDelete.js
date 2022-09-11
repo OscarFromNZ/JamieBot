@@ -7,6 +7,11 @@ module.exports = {
     async execute(client, message) {
         if (message.author.bot) return;
         // Saving the snipe
-        await client.snipes.set(message.channel.id, message.content);
+        let snipeData = {
+            content: message.content,
+            author: message.author,
+            date: message.createdTimestamp
+        };
+        await client.snipes.set(message.channel.id, snipeData);
     },
 };
