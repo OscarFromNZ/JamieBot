@@ -55,6 +55,7 @@ module.exports = {
         };
 
         if (!message.content.startsWith(prefix)) return;
+        await message.channel.sendTyping();
         try {
             if (!message.guild) return messageHandler.reply(client, "You must be in a server to run any command");
 

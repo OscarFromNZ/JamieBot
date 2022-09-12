@@ -3,11 +3,13 @@ var messageHandler = require("../../handlers/messageHandler");
 
 module.exports = {
     data: {
-        name: ["cat", "cats", "kitten"],
+        name: ["8ball", "8balls", "magic8"],
         description: "blah blah",
 
         ownerOnly: false,
         premiumOnly: false,
+        maxArgs: undefined,
+        minArgs: 1
     },
 
     async execute(client, message, args) {
@@ -43,7 +45,7 @@ module.exports = {
 			];
 			let index = await (Math.floor(Math.random() * Math.floor(eightball.length)));
 			await setTimeout(() => {
-                await messageHandler.reply(client, eightball[index], message.channel);
+                messageHandler.reply(client, eightball[index], message.channel);
 			}, 750);
         } catch (e) { console.log(e) }
 
