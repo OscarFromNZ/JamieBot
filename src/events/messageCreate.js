@@ -1,10 +1,13 @@
 var messageHandler = require("../handlers/messageHandler");
 let prefixes = new Map();
+const { PermissionsBitField } = require('discord.js');
 
 module.exports = {
     name: 'messageCreate',
     once: false,
     async execute(client, message) {
+
+        if (!message.guild) return;
 
         // Commented out because of problems
         /*
@@ -67,6 +70,9 @@ module.exports = {
             // Checks
             if (cmdFile.data.isOwner == true && message.author.id !== "422603238936936450") return;
             if (cmdFile.data.minArgs > args) return await messageHandler.reply(client, "You did not specify enough args", message.channel);
+            if (cmdFile.perms) {
+                if (await message.member.permissions.has(PermissionsBitField?.Flags?.cmdFile?.perms)) return await messageHandler.reply(client, "You do not have the correct permissions required to run this command", message.channel);
+            }
 
             if (!cmdFile) return await messageHandler.reply(client, `Unknown command, run ${prefix}help for a list of commands`, message.channel);
 
