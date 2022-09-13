@@ -14,6 +14,9 @@ module.exports = {
 
     async execute(client, message, args) {
         try {
+
+            return await messageHandler.reply(client, `Command disabled`, message.channel);
+
             if (!args) {
                 await client.db.collection("guilds").updateOne({ _id: message.guild.id },
                     {

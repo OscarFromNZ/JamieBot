@@ -14,6 +14,9 @@ module.exports = {
 
     async execute(client, message, args) {
         try {
+
+            return await messageHandler.reply(client, `Command disabled`, message.channel);
+
             console.log(args);
             await client.emit('guildMemberAdd', message.member);
 
