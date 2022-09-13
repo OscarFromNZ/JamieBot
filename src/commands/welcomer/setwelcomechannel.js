@@ -3,13 +3,13 @@ var messageHandler = require("../../handlers/messageHandler");
 
 module.exports = {
     data: {
-        name: ["prefix"],
+        name: ["setwelcomechannel", "welcomechannel", "welcomechannelset"],
         description: "blah blah",
 
         ownerOnly: false,
         premiumOnly: false,
-        maxArgs: 1,
-        minArgs: 0
+        maxArgs: undefined,
+        minArgs: 1
     },
 
     async execute(client, message, args) {

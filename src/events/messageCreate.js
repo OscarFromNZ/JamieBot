@@ -31,21 +31,8 @@ module.exports = {
         }
         */
 
-        var guildDoc = await client.db.collection("guilds").findOne({
-            _id: message.guild.id
-        });
-        if (!guildDoc) {
-            await client.db.collection("guilds").insertOne(await client.functions.getDefaultGuildSchema(client, message.guild.id), async function (err, res) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log("✅ Doc made");
-            });
-
-            guildDoc = await client.db.collection("guilds").findOne({
-                _id: message.guild.id
-            });
-        }
+        // Getting doc
+        let guildDoc = await client.functions.getGuildDoc(client, message.guild.id);
 
         let prefix = guildDoc.prefix;
 
